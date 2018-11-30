@@ -23,7 +23,7 @@ Hexo主题的修改
 【Git】  工作区和暂存区
 
 
-1234一些小知识点总结：$ git add readme.txt              将readme.txt文" />
+1234一些小知识点总结：$ git add readme.txt              将readme.txt文">
   
 
   
@@ -33,7 +33,7 @@ Hexo主题的修改
   
   
   <title>Something about the first task | Revolver</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <meta name="description" content="Git  工作区和暂存区 撤销修改 远程仓库 分支合并与删除 打标签 ssh密钥   Hexo主题的修改 我喜欢的主题链接：湖绿风 操作步骤    【Git】  工作区和暂存区   1234一些小知识点总结：$ git add readme.txt              将readme.txt文件从工作区保存到暂存区域$ git commit -m &amp;quot;readme.txt&amp;quot">
 <meta name="keywords" content="一些琐碎的知识">
 <meta property="og:type" content="article">
@@ -65,7 +65,7 @@ Hexo主题的修改
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
 </head>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
@@ -110,7 +110,7 @@ Hexo主题的修改
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://f5vemyself.github.io/2018/10/18/Something-about-the-first-task/" data-id="cjommdq8n0001estlq5ec68rx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://f5vemyself.github.io/2018/10/18/Something-about-the-first-task/" data-id="cjp3gly450001pktl42ezsdhx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -151,7 +151,7 @@ Hexo主题的修改
 <p> 这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，<code>git status</code>命令会立刻告诉你哪些文件被删除了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> $ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    deleted:    readme.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or </span><br><span class="line">&quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
 <p><br><br><br>现在你有两个选择：<br>1.假如你是误删，使用<code>$ git checkout --readme.txt</code>,就可以恢复了</p>
-<p>2.如果确实要从版本库中删除该文件，那就用命令<code>$ git rm</code>删掉，并且<code>$ git commit</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git rm readme.txt</span><br><span class="line">rm &apos;readme.txt&apos;</span><br><span class="line"></span><br><span class="line">$ git commit -m &quot;remove readme.txt&quot;</span><br><span class="line">[master d46f35e] remove readme.txt</span><br><span class="line"> 1 file changed, 1 deletion(-)</span><br><span class="line"> delete mode 100644 test.txt</span><br></pre></td></tr></table></figure></p>
+<p>2.如果确实要从版本库中删除该文件，那就用命令<code>$ git rm</code>删掉，并且<code>$ git commit</code>：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git rm readme.txt</span><br><span class="line">rm &apos;readme.txt&apos;</span><br><span class="line"></span><br><span class="line">$ git commit -m &quot;remove readme.txt&quot;</span><br><span class="line">[master d46f35e] remove readme.txt</span><br><span class="line"> 1 file changed, 1 deletion(-)</span><br><span class="line"> delete mode 100644 test.txt</span><br></pre></td></tr></table></figure><p></p>
 <p>现在文件就从版本库中被删除了！<br><br><br></p>
 <font color="red">假如你突然后悔了!</font><br>但是此时 <del>readme.txt</del> 已经从版本库删除了，因为你已经commit了，那么怎么办呢？此时你可以利用<code>版本回退</code>功能<br><code>$ git reset --hard HEAD^</code>通过此命令可以返回上一个版本！<br><br><br><br><br>———————————————————————————————————————————————————————————————————————————————————<br><br><font color="darkred">【Git】  远程仓库</font>
 
@@ -210,8 +210,8 @@ Hexo主题的修改
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -224,6 +224,10 @@ Hexo主题的修改
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2018/11/28/task-three/">second</a>
+          </li>
         
           <li>
             <a href="/2018/11/18/principleofbrowser/">principleofbrowser</a>
@@ -241,10 +245,6 @@ Hexo主题的修改
             <a href="/2018/10/24/second/">second</a>
           </li>
         
-          <li>
-            <a href="/2018/10/18/Something-about-the-first-task/">Something about the first task</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -254,7 +254,7 @@ Hexo主题的修改
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js学习入门篇/">js学习入门篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js学习进阶篇/">js学习进阶篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一些琐碎的知识/">一些琐碎的知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图解浏览器的原理/">图解浏览器的原理</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js学习入门篇/">js学习入门篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js学习进阶篇/">js学习进阶篇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/learn-package-json-gulp-editorconfig/">learn package.json/gulp/editorconfig</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/一些琐碎的知识/">一些琐碎的知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图解浏览器的原理/">图解浏览器的原理</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -263,7 +263,7 @@ Hexo主题的修改
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/js学习入门篇/" style="font-size: 10px;">js学习入门篇</a> <a href="/tags/js学习进阶篇/" style="font-size: 10px;">js学习进阶篇</a> <a href="/tags/一些琐碎的知识/" style="font-size: 10px;">一些琐碎的知识</a> <a href="/tags/图解浏览器的原理/" style="font-size: 10px;">图解浏览器的原理</a>
+      <a href="/tags/js学习入门篇/" style="font-size: 10px;">js学习入门篇</a> <a href="/tags/js学习进阶篇/" style="font-size: 10px;">js学习进阶篇</a> <a href="/tags/learn-package-json-gulp-editorconfig/" style="font-size: 10px;">learn package.json/gulp/editorconfig</a> <a href="/tags/一些琐碎的知识/" style="font-size: 10px;">一些琐碎的知识</a> <a href="/tags/图解浏览器的原理/" style="font-size: 10px;">图解浏览器的原理</a>
     </div>
   </aside>
 
