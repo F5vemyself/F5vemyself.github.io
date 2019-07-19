@@ -1,0 +1,378 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>task-one | Revolver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="John Doe">
+    
+    <meta name="description" content="Git
+
+工作区和暂存区
+撤销修改
+远程仓库
+分支合并与删除
+打标签
+ssh密钥
+
+
+Hexo主题的修改
+我喜欢的主题链接：湖绿风
+操作步骤
+
+
+
+【Git】  工作区和暂存区
+
+
+1234一些小知识点总结：$ git add readme.txt              将readme.txt文">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Revolver" title="Revolver"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Revolver">Revolver</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:f5vemyself.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/10/18/task-one/" title="task-one" itemprop="url">task-one</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://f5vemyself.github.io" title="John Doe">John Doe</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-10-18T14:08:24.000Z" itemprop="datePublished">2018-10-18</time>
+    Updated:<time datetime="2019-02-18T03:17:26.609Z" itemprop="dateModified">2019-02-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+		</div>
+		
+		<ul>
+<li><p>Git</p>
+<ul>
+<li>工作区和暂存区</li>
+<li>撤销修改</li>
+<li>远程仓库</li>
+<li>分支合并与删除</li>
+<li>打标签</li>
+<li>ssh密钥</li>
+</ul>
+</li>
+<li>Hexo主题的修改<ul>
+<li>我喜欢的主题链接：<a href="https://github.com/wizardforcel/hexo-theme-cyanstyle" target="_blank" rel="noopener">湖绿风</a></li>
+<li>操作步骤</li>
+</ul>
+</li>
+</ul>
+<font color="darkred">【Git】  工作区和暂存区</font>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">一些小知识点总结：</span><br><span class="line">$ git add readme.txt              将readme.txt文件从工作区保存到暂存区域</span><br><span class="line">$ git commit -m &quot;readme.txt&quot;      将readme.txt文件从暂存区提交到版本库</span><br><span class="line">$ git diff HEAD -- readme.txt     查看工作区和版本库里面最新版本的区别</span><br></pre></td></tr></table></figure>
+<hr>
+
+<font color="darkred">【Git】  撤销修改</font>
+
+
+<p>情况一：没有使用 <code>$ git add readme.txt</code>  提交到暂存区<br>直接使用<code>$ git checkout -- readme.txt</code> ，即可撤销</p>
+<p>情况二：已经使用 <code>$ git add readme.txt</code>  命令提交到暂存区了<br>此时分两步：<br>1.使用<code>$ git reset HEAD readme.txt</code>使其返回到情况一！<br>2.使用情况一的命令<code>$ git checkout -- readme.txt</code>即可撤销</p>
+<hr>
+<font color="darkred">【Git】  删除文件</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用rm命令删了：</span><br><span class="line">$ rm readme.txt</span><br></pre></td></tr></table></figure>
+<p> 这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，<code>git status</code>命令会立刻告诉你哪些文件被删除了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> $ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">    deleted:    readme.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or </span><br><span class="line">&quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
+<p><br><br><br>现在你有两个选择：<br>1.假如你是误删，使用<code>$ git checkout --readme.txt</code>,就可以恢复了</p>
+<p>2.如果确实要从版本库中删除该文件，那就用命令<code>$ git rm</code>删掉，并且<code>$ git commit</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git rm readme.txt</span><br><span class="line">rm &apos;readme.txt&apos;</span><br><span class="line"></span><br><span class="line">$ git commit -m &quot;remove readme.txt&quot;</span><br><span class="line">[master d46f35e] remove readme.txt</span><br><span class="line"> 1 file changed, 1 deletion(-)</span><br><span class="line"> delete mode 100644 test.txt</span><br></pre></td></tr></table></figure></p>
+<p>现在文件就从版本库中被删除了！<br><br><br></p>
+<font color="red">假如你突然后悔了!</font><br>但是此时 <del>readme.txt</del> 已经从版本库删除了，因为你已经commit了，那么怎么办呢？此时你可以利用<code>版本回退</code>功能<br><code>$ git reset --hard HEAD^</code>通过此命令可以返回上一个版本！<br><br><br><br><br>———————————————————————————————————————————————————————————————————————————————————<br><br><font color="darkred">【Git】  远程仓库</font>
+
+<p>多人开发的时候，如果想参与开发，怎么办呢？<br>1.在github里找到别人的仓库，Fork一份（此时你的仓库里有一份一模一样的）<br>2.把Fork的仓库clone到本地仓库，这样就可以在git里对其就行操作啦！（Fork过来了，就是我个人的仓库啦，想怎么修改怎么修改）<br>3.如果你认为你开发的部分已经相对完善，在github上pull request一下，如果原仓库持有者认为你的分支不错，会将你的分支merge到master分支上<br><br><br></p>
+<p><code>补充：</code>怎么样知道自己的本地仓库有没有和远程仓库建立联系呢？<br>又或者已经建立了联系，但不知道和谁建立了联系？<br>如何删除已建立的联系呢?<br>1.使用<code>$ git remote</code>命令查看是否建立联系， 如果已经建立了联系，会出现<code>origin</code><br>2.使用<code>$ git remote -v</code>查看和谁建立了联系<br><img src="/img/remote-v.png" alt="remote-v"><br>3.如果已经建立联系了<br><img src="/img/remote-rm.png" alt="remote-rm"> 此时利用此命令取消联系</p>
+<hr>
+<font color="darkred">【Git】  分支合并与修改</font>
+
+<p>在<code>dev</code>分支上，已经<code>add</code>，并且<code>commit</code>了<code>dev01.txt</code>文件，此时准备将其合并到master分支！</p>
+<font color="orange">一定要先将其切回<code>master</code>分支，在master分支上</font>，执行如下命令行：<br><code>$ git merge dev</code>(此方法为快速合并)<br>另一种合并方法：<code>$ git  merge --no-ff -m &quot;bulabulabula&quot; dev</code> （非快速合并）<br><br>合并之后可以用<code>$ git log --graph --pretty=oneline --abbrev-commit</code>查看历史分支<br><br>——————————————————————————————————————————————————————————————————————————————————————<br><br><font color="darkred">【Git】  打标签</font><br><img src="/img/tag1.png" alt="tag1"><br><img src="/img/tag2.png" alt="tag2"><br><img src="/img/tag3.png" alt="tag3"><br><img src="/img/tag4.png" alt="tag4"><br><img src="/img/tag5.png" alt="tag5"><br><br>—<br><br><font color="darkred">【Git】  ssh密钥</font><br><img src="/img/ssh.png" alt="ssh"><br><br><font color="red"><code>注意：</code>一个ssh密钥只能绑定一个github账号</font>
+
+<hr>
+<p><font color="darkred">【Hexo】  主题修改操作步骤</font><br><img src="/img/change.png" alt="change"></p>
+<hr>
+<blockquote>
+<p>THE END<br>参考链接：<br><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374385852170d9c7adf13c30429b9660d0eb689dd43a000" target="_blank" rel="noopener">远程仓库-廖雪峰的官方网站</a><br><a href="http://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">Hexo 博客搭建参考链接</a></p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/一些琐碎的知识/">一些琐碎的知识</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://f5vemyself.github.io/2018/10/18/task-one/" data-title="task-one | Revolver" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/10/24/task-two/" title="task-two">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  task-two</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/10/17/my-first-blog/"  title="my-first-blog">
+ <strong>NEXT:</strong><br/> 
+ <span>my-first-blog
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/js学习入门篇/" title="js学习入门篇">js学习入门篇<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js学习进阶篇/" title="js学习进阶篇">js学习进阶篇<sup>1</sup></a></li>
+		
+			<li><a href="/tags/learn-package-json-gulp-editorconfig/" title="learn package.json/gulp/editorconfig">learn package.json/gulp/editorconfig<sup>1</sup></a></li>
+		
+			<li><a href="/tags/一些琐碎的知识/" title="一些琐碎的知识">一些琐碎的知识<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2019 
+		
+		<a href="https://f5vemyself.github.io" target="_blank" title="John Doe">John Doe</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
