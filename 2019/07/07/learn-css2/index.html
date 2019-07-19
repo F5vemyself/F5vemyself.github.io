@@ -1,0 +1,442 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CSS易忘知识点 | Revolver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Liu sichun">
+    
+    <meta name="description" itemprop="description" content="摘要：一些学了就忘的CSS知识点(我晕晕)">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Revolver" title="Revolver"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Revolver">Revolver</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:f5vemyself.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/07/07/learn-css2/" title="CSS易忘知识点" itemprop="url">CSS易忘知识点</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://f5vemyself.github.io" title="Liu sichun">Liu sichun</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2019-07-06T16:00:00.000Z" itemprop="datePublished">2019-07-07</time>
+    Updated:<time datetime="2019-07-19T14:40:17.266Z" itemprop="dateModified">2019-07-19</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+		</div>
+		
+		<p>###一些学了就忘的知识点(我晕晕)</p>
+<ul>
+<li>img的属性</li>
+<li>浮动</li>
+<li>绝对定位相对定位</li>
+<li>默认第一个变黑加粗，点击其他，其他变黑加粗，第一个复原。</li>
+</ul>
+<p>img的属性</p>
+<ul>
+<li>src  路径为相对路径 例如src=”./images/jiesong.png”</li>
+<li>alt  图裂时显示的内容</li>
+<li>width/height   指定图片的宽/高度<ul>
+<li>行内样式（一般不这么写）<ul>
+<li>width=”400px”</li>
+<li>width=”32%”</li>
+</ul>
+</li>
+<li>放在img标签的属性里<ul>
+<li>img {<br>  width: 400px;<br>}<br><strong>PS:img的display不太清楚</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>插入背景图片</p>
+<ul>
+<li>div {<pre><code>    background-image: url(./images/jiesong.png);  //设置图片的链接，也是相对地址
+    background-size:400px;   //设置图片的大小
+    background-repeat: no-repeat;    //设置是否平铺
+    width: 400px;    //设置盒子的宽度
+    height: 600px;   //设置盒子的高度
+}
+</code></pre></li>
+</ul>
+<p>盒子的宽高属性</p>
+<ul>
+<li>不设置高，则无高度</li>
+<li>不设置宽度，则默认整个屏幕宽度</li>
+<li>父盒子设置了宽高，子盒子继承父盒子的宽度，不继承高度，高度需要自定义。</li>
+<li>父盒子只设置了高度，子盒子需自己设置高度，其宽度继承父盒子，即也为整个屏幕宽度</li>
+</ul>
+<p>伪类选择器</p>
+<ul>
+<li>nth-child（实例：a:nth-child()）<ul>
+<li>nth-child（odd） 奇数</li>
+<li>nth-child（even）偶数</li>
+<li>nth-child（2）</li>
+</ul>
+</li>
+<li><p>a 的四个，常用的俩</p>
+<ul>
+<li><p>a:hover {</p>
+<p>}</p>
+</li>
+<li><p>a:focus {</p>
+<p>}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>浮动</p>
+<ul>
+<li>需要有一个父盒子，占有高度，浮动是飘起来的不占有高度</li>
+<li>子盒子紧贴父盒子的内边距对其</li>
+<li>添加了浮动后，具有行内块元素的特性（如果盒子不给宽度，由文字的宽度撑开）</li>
+<li>父盒子占高度，子盒子都得浮动</li>
+<li>但是经常不知道子盒子的高度是多少，所以父盒子的高度往往不写，但是这样子盒子浮动就不占有高度，于是会对其他的盒子造成影响，所以需要清除浮动带来的影响</li>
+<li><p>清除浮动带来的影响的三种方法（配合父盒子无高度的情况使用，若父盒子有高度，则不需要清除浮动带来的影响）</p>
+<ul>
+<li><p>1.在子盒子后面加一个空盒子,并且添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;fa1&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;son1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;son2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;fa2&quot;&gt;&lt;/div&gt;</span><br><span class="line">.clear&#123;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.父级添加overflow方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.fa1 &#123;</span><br><span class="line">        margin: 0 auto;</span><br><span class="line">        overflow: hidden; //除了hidden，auto，scroll也可以实现效果</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.after伪元素清除浮动(本来应该是 ::after,但是 :after也可以为了兼容)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;fa1 clearfix&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;son1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;son2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;fa2&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">.clearfix:after &#123;</span><br><span class="line">    content:&quot;.&quot;;  /*内容为小点，尽量不要空，否则旧版本浏览器有空隙 */</span><br><span class="line">    display: block;</span><br><span class="line">    height: 0;  </span><br><span class="line">    visibility: hidden;</span><br><span class="line">    </span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">    *zoom: 1;  </span><br><span class="line">    /* *代表ie6，7能识别的符号，zoom就是ie6，7清除浮动的方法 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.双伪元素清除浮动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;fa1 clearfix&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;son1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;son2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;fa2&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">.clearfix:before, .clearfix:after &#123;</span><br><span class="line">        content: &quot;&quot;;</span><br><span class="line">        display: table;  /*触发bfc*/</span><br><span class="line">    &#125;</span><br><span class="line">    .clearfix:after &#123;</span><br><span class="line">        clear: both;</span><br><span class="line">    &#125;</span><br><span class="line">    .clearfix &#123;</span><br><span class="line">        *zoom: 1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>块元素，行内元素，行内块元素（ps：还需要补充）</p>
+<ul>
+<li>块元素(block) div </li>
+<li>行内元素(inline) span 给了高度，宽度也不显示 宽度由span的文字宽度撑开</li>
+<li>行内块元素(inline-block) 给了高度和宽度就显示宽高，不给宽度就由文字宽度撑开</li>
+</ul>
+<p>li标签 ,a标签</p>
+<ul>
+<li>li标签是块级元素</li>
+<li>a标签是行内元素</li>
+</ul>
+<p>定位（定位方式+边偏移）</p>
+<ul>
+<li>定位方式<ul>
+<li>静态定位</li>
+<li>相对定位</li>
+<li>绝对定位</li>
+<li>固定定位</li>
+</ul>
+</li>
+<li>边偏移<ul>
+<li>top</li>
+<li>left</li>
+<li>right</li>
+<li>bottom<br>—————-这是一条分界线—————-</li>
+</ul>
+</li>
+<li>静态定位<br>  定位方式不写，默认静态定位，边偏移对它无效，所以静态定位方式一般用来清除定位</li>
+<li>相对定位<ul>
+<li>relative 不脱标的标准流</li>
+<li>移动位置是相对自己</li>
+</ul>
+</li>
+<li>绝对定位<ul>
+<li>absolute 完全脱标的<ul>
+<li>如果父盒子没有定位 子盒子移动参考浏览器，而不是自身，并且如果有三个子盒子，盒子2移动，盒子3会填补盒子2的位置，因为绝对定位是脱标的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>固定定位<ul>
+<li>他的位置与父盒子的定位方式无关，只与浏览器有关</li>
+<li>固定定位完全脱标，不占有位置，不随滚动条的滚动而滚动</li>
+</ul>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://f5vemyself.github.io/2019/07/07/learn-css2/" data-title="CSS易忘知识点 | Revolver" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2019/07/16/learn-json/" title="js基础学习——JSON">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  js基础学习——JSON</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2019/02/21/learn-sass/"  title="Sass基础">
+ <strong>NEXT:</strong><br/> 
+ <span>Sass基础
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>4</sup></a></li>
+		
+			<li><a href="/tags/Sass/" title="Sass">Sass<sup>1</sup></a></li>
+		
+			<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+		
+			<li><a href="/tags/sweetseven网站/" title="sweetseven网站">sweetseven网站<sup>1</sup></a></li>
+		
+			<li><a href="/tags/网络相关/" title="网络相关">网络相关<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2019 
+		
+		<a href="https://f5vemyself.github.io" target="_blank" title="Liu sichun">Liu sichun</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
