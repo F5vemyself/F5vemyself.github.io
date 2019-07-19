@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Sass基础 | Revolver</title>
+    <title>CSS三大特性 | Revolver</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Liu sichun">
     
-    <meta name="description" itemprop="description" content="摘要：Scss学习笔记">
+    <meta name="description" itemprop="description" content="摘要：CSS三大特性">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/02/21/learn-sass/" title="Sass基础" itemprop="url">Sass基础</a>
+      <a href="/2019/07/18/learn-css/" title="CSS三大特性" itemprop="url">CSS三大特性</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://f5vemyself.github.io" title="Liu sichun">Liu sichun</a>
     </p>
   <p class="article-time">
-    <time datetime="2019-02-20T16:00:00.000Z" itemprop="datePublished">2019-02-21</time>
-    Updated:<time datetime="2019-07-19T14:15:03.861Z" itemprop="dateModified">2019-07-19</time>
+    <time datetime="2019-07-17T16:00:00.000Z" itemprop="datePublished">2019-07-18</time>
+    Updated:<time datetime="2019-07-19T14:34:52.363Z" itemprop="dateModified">2019-07-19</time>
     
   </p>
 </header>
@@ -85,26 +85,43 @@
 		
 		</div>
 		
-		<ul>
-<li>父选择器的标识符&amp;;</li>
-</ul>
-<p><code>思维误区:</code><br>最常见的一种情况是当你为链接之类的元素写<code>：hover</code>这种伪类时，下面这种情况<code>sass</code>就无法正常工作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">article a &#123;</span><br><span class="line">  :hover &#123; color: red &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>//编译后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">article a :hover&#123;</span><br><span class="line">  color: red</span><br><span class="line">&#125;</span><br><span class="line">显然article a :hover&#123;&#125;与article a:hover&#123;&#125;不同</span><br></pre></td></tr></table></figure></p>
-<p><code>解决办法:使用&amp;标识符！</code><br>修改后正常工作的<code>sass</code>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">article a &#123;</span><br><span class="line">    &amp;:hover &#123; color: red &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//编译后</span><br><span class="line">article a:hover&#123;</span><br><span class="line">  color: red</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>要点:</code><br>也就是说此处的<code>&amp;:hover {}</code>相当于<code>article a:hover {}</code>即<code>&amp;</code>相当于<code>article a</code>(因此<code>&amp;</code>叫父选择器的标识符)</p>
+		<p>#####CSS层叠性</p>
 <ul>
-<li>给混合器传参<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@mixin link-colors($normal, $hover, $visited) &#123;</span><br><span class="line">  color: $normal;</span><br><span class="line">  &amp;:hover &#123; color: $hover; &#125;</span><br><span class="line">  &amp;:visited &#123; color: $visited; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>层叠性是指当一个标签被设置了多个重复的样式的时候，一个属性会覆盖另外一个属性。<br>ps：层叠性主要遵循的原则是就近原则，在不考虑优先级的情况下，在多个样式中最终生效的样式是离标签最近的样式。</li>
+</ul>
+<p>#####CSS继承性</p>
+<ul>
+<li>继承性是指当子标签没有设置样式时，会继承父标签的样式。</li>
+<li>比如一个子标签没有设置背景颜色，那么子标签会继承父标签的背景颜色。</li>
+</ul>
+<p>ps:可继承的属性比如有字体类属性（字体颜色、字体大小之类的）、文本类属性（行高之类的）、背景类属性（背景颜色之类的）（要注意子标签不会继承父标签的高度、边距属性。）</p>
+<p>#####CSS优先级<br><strong>权重计算方法【可以称为是css的特异性】：</strong></p>
+<ul>
+<li>几个规则：<ul>
+<li>权重使用四个数字来衡量(x,x,x,x)【CSS2使用三位】</li>
+<li>继承的权重为(0,0,0,0)   <strong>很容易出错</strong>  详情见css三大特性.html</li>
+<li>标签选择器的权重为(0,0,0,1)</li>
+<li>类、伪类选择器的权重为(0,0,1,0)</li>
+<li>id选择器选择器的权重为(0,1,0,0)</li>
+<li>行内样式的权重为(1,0,0,0)</li>
+<li>!important的权重无限大</li>
+</ul>
+</li>
+<li>计算方法：<ul>
+<li>多个选择器混杂时，权重之和也是用四个数字来组成，每一位的值为多个选择器四个数字的每位之和，比如div:first-child的权重为(0,0,0,1)+(0,0,1,0)=(0,0,1,1)，比如div ul li 为(0,0,0,3),比如a:hover为(0,0,1,1)</li>
+<li>权重之和的数制是不会进位的，再多的标签选择器权重加和也抵不过一个类选择器。</li>
+<li>多个选择器之间的顺序是无关的，不影响权重之和。</li>
+<li>注意：对于并集选择器来说不是权重的加和，因为理论上它还是独立的，它只相当于将多个选择器的相同内容归于一个并集选择器中，理论上每一个选择器还是独立的</li>
+</ul>
 </li>
 </ul>
-<p>当混合器被@include时，你可以把它当作一个css函数来传参。如果你像下边这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">------------------------引用方法--------------------------</span><br><span class="line">法一：</span><br><span class="line">a &#123;</span><br><span class="line">  @include link-colors(blue, red, green);</span><br><span class="line">&#125;     //混合器传参的引用;</span><br><span class="line"></span><br><span class="line">法二：</span><br><span class="line">a &#123;</span><br><span class="line">    @include link-colors($normal: blue,$visited：green,$hover: red);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>//Sass最终生成的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#123; color: blue; &#125;</span><br><span class="line">a:hover &#123; color: red; &#125;</span><br><span class="line">a:visited &#123; color: green; &#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Sass/">Sass</a>
+  <span></span> <a href="/tags/CSS/">CSS</a>
   </div>
 
 
@@ -112,7 +129,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://f5vemyself.github.io/2019/02/21/learn-sass/" data-title="Sass基础 | Revolver" data-tsina="" class="share clearfix">
+  <div data-url="https://f5vemyself.github.io/2019/07/18/learn-css/" data-title="CSS三大特性 | Revolver" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -121,19 +138,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/07/16/learn-json/" title="js基础学习——JSON">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  js基础学习——JSON</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/01/04/sweetseven/"  title="sweetseven网站建设">
+<a href="/2019/07/17/learn-js-string/"  title="js基础学习——数组与字符串">
  <strong>NEXT:</strong><br/> 
- <span>sweetseven网站建设
+ <span>js基础学习——数组与字符串
 </span>
 </a>
 </div>
