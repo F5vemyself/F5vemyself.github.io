@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2019-07-15T16:00:00.000Z" itemprop="datePublished">2019-07-16</time>
-    Updated:<time datetime="2019-07-19T14:33:43.659Z" itemprop="dateModified">2019-07-19</time>
+    Updated:<time datetime="2021-01-28T01:59:23.903Z" itemprop="dateModified">2021-01-28</time>
     
   </p>
 </header>
@@ -82,7 +82,7 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON-与-JS-对象的关系"><span class="toc-number">1.</span> <span class="toc-text">JSON 与 JS 对象的关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON-和-JS-对象互转"><span class="toc-number">2.</span> <span class="toc-text">JSON 和 JS 对象互转</span></a></li></ol>
 		</div>
 		
 		<p>【JSON】<br>json简单说就是javascript中的对象和数组，所以这两种结构就是<strong>对象</strong>和<strong>数组</strong>两种结构，通过这两种结构可以表示各种复杂的结构</p>
@@ -90,8 +90,8 @@
 <li><strong>1、对象</strong>：对象在js中表示为“{}”括起来的内容，数据结构为 {key：value,key：value,…}的键值对的结构，在面向对象的语言中，key为对象的属性，value为对应的属性值，所以很容易理解，取值方法为 对象.key 获取属性值，这个属性值的类型可以是 数字、字符串、数组、对象几种。</li>
 <li><strong>2、数组</strong>：数组在js中是中括号“[]”括起来的内容，数据结构为 [“java”,”javascript”,”vb”,…]，取值方式和所有语言中一样，使用索引获取，字段值的类型可以是 数字、字符串、数组、对象几种。</li>
 </ul>
-<p>#####JSON 与 JS 对象的关系<br>JSON 是 JS 对象的<strong>字符串表示法</strong>，它使用文本表示一个 JS 对象的信息，本质是一个字符串。<br>var obj = {a: ‘Hello’, b: ‘World’}; //这是一个对象，注意键名也是可以使用引号包裹的<br>var json = ‘{“a”: “Hello”, “b”: “World”}’; //这是一个 JSON 字符串，本质是一个字符串</p>
-<p>#####JSON 和 JS 对象互转<br>-&gt; 要实现从JSON字符串转换为JS对象，使用 JSON.parse() 方法：<br>var obj = JSON.parse(‘{“a”: “Hello”, “b”: “World”}’); //结果是 {a: ‘Hello’, b: ‘World’}</p>
+<h5 id="JSON-与-JS-对象的关系"><a href="#JSON-与-JS-对象的关系" class="headerlink" title="JSON 与 JS 对象的关系"></a>JSON 与 JS 对象的关系</h5><p>JSON 是 JS 对象的<strong>字符串表示法</strong>，它使用文本表示一个 JS 对象的信息，本质是一个字符串。<br>var obj = {a: ‘Hello’, b: ‘World’}; //这是一个对象，注意键名也是可以使用引号包裹的<br>var json = ‘{“a”: “Hello”, “b”: “World”}’; //这是一个 JSON 字符串，本质是一个字符串</p>
+<h5 id="JSON-和-JS-对象互转"><a href="#JSON-和-JS-对象互转" class="headerlink" title="JSON 和 JS 对象互转"></a>JSON 和 JS 对象互转</h5><p>-&gt; 要实现从JSON字符串转换为JS对象，使用 JSON.parse() 方法：<br>var obj = JSON.parse(‘{“a”: “Hello”, “b”: “World”}’); //结果是 {a: ‘Hello’, b: ‘World’}</p>
 <p>-&gt; 要实现从JS对象转换为JSON字符串，使用 JSON.stringify() 方法：<br>var json = JSON.stringify({a: ‘Hello’, b: ‘World’}); //结果是 ‘{“a”: “Hello”, “b”: “World”}’</p>
   
 	</div>
@@ -117,18 +117,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2019/07/16/learn-ajax/" title="js基础学习——ajax">
+ <a href="/2019/07/17/learn-js-string/" title="js学习——数组与字符串">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  js基础学习——ajax</span>
+  js学习——数组与字符串</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2019/07/07/learn-css2/"  title="CSS易忘知识点">
+<a href="/2019/07/16/learn-ajax/"  title="js基础学习——ajax">
  <strong>NEXT:</strong><br/> 
- <span>CSS易忘知识点
+ <span>js基础学习——ajax
 </span>
 </a>
 </div>
@@ -141,7 +141,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON-与-JS-对象的关系"><span class="toc-number">1.</span> <span class="toc-text">JSON 与 JS 对象的关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JSON-和-JS-对象互转"><span class="toc-number">2.</span> <span class="toc-text">JSON 和 JS 对象互转</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -159,7 +159,7 @@
 		
 			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 		
-			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>4</sup></a></li>
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>5</sup></a></li>
 		
 			<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
 		
@@ -197,7 +197,7 @@
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2019 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2021 
 		
 		<a href="https://f5vemyself.github.io" target="_blank" title="Liu sichun">Liu sichun</a>
 		
