@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>CSS三大特性 | Revolver</title>
+    <title>毕业设计相关的笔记 | Revolver</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Liu sichun">
     
-    <meta name="description" itemprop="description" content="摘要：CSS三大特性">
+    <meta name="description" itemprop="description" content="摘要：整理一下完成毕业设计过程中遇到的困难">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/07/18/learn-css1/" title="CSS三大特性" itemprop="url">CSS三大特性</a>
+      <a href="/2021/02/21/knowledge-graph/" title="毕业设计相关的笔记" itemprop="url">毕业设计相关的笔记</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://f5vemyself.github.io" title="Liu sichun">Liu sichun</a>
     </p>
   <p class="article-time">
-    <time datetime="2019-07-17T16:00:00.000Z" itemprop="datePublished">2019-07-18</time>
-    Updated:<time datetime="2021-01-28T01:58:35.632Z" itemprop="dateModified">2021-01-28</time>
+    <time datetime="2021-02-20T16:00:00.000Z" itemprop="datePublished">2021-02-21</time>
+    Updated:<time datetime="2021-02-21T01:29:45.901Z" itemprop="dateModified">2021-02-21</time>
     
   </p>
 </header>
@@ -82,44 +82,17 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-CSS层叠性"><span class="toc-number">1.</span> <span class="toc-text">1.CSS层叠性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-CSS继承性"><span class="toc-number">2.</span> <span class="toc-text">2.CSS继承性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-CSS优先级"><span class="toc-number">3.</span> <span class="toc-text">3.CSS优先级</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-配置环境"><span class="toc-number">1.</span> <span class="toc-text">1.配置环境</span></a></li></ol>
 		</div>
 		
-		<h5 id="1-CSS层叠性"><a href="#1-CSS层叠性" class="headerlink" title="1.CSS层叠性"></a>1.CSS层叠性</h5><ul>
-<li>层叠性是指当一个标签被设置了多个重复的样式的时候，一个属性会覆盖另外一个属性。<br>ps：层叠性主要遵循的原则是就近原则，在不考虑优先级的情况下，在多个样式中最终生效的样式是离标签最近的样式。</li>
-</ul>
-<h5 id="2-CSS继承性"><a href="#2-CSS继承性" class="headerlink" title="2.CSS继承性"></a>2.CSS继承性</h5><ul>
-<li>继承性是指当子标签没有设置样式时，会继承父标签的样式。</li>
-<li>比如一个子标签没有设置背景颜色，那么子标签会继承父标签的背景颜色。</li>
-</ul>
-<p>ps:可继承的属性比如有字体类属性（字体颜色、字体大小之类的）、文本类属性（行高之类的）、背景类属性（背景颜色之类的）（要注意子标签不会继承父标签的高度、边距属性。）</p>
-<h5 id="3-CSS优先级"><a href="#3-CSS优先级" class="headerlink" title="3.CSS优先级"></a>3.CSS优先级</h5><p><strong>权重计算方法【可以称为是css的特异性】：</strong></p>
-<ul>
-<li>几个规则：<ul>
-<li>权重使用四个数字来衡量(x,x,x,x)【CSS2使用三位】</li>
-<li>继承的权重为(0,0,0,0)   <strong>很容易出错</strong>  详情见css三大特性.html</li>
-<li>标签选择器的权重为(0,0,0,1)</li>
-<li>类、伪类选择器的权重为(0,0,1,0)</li>
-<li>id选择器选择器的权重为(0,1,0,0)</li>
-<li>行内样式的权重为(1,0,0,0)</li>
-<li>!important的权重无限大</li>
-</ul>
-</li>
-<li>计算方法：<ul>
-<li>多个选择器混杂时，权重之和也是用四个数字来组成，每一位的值为多个选择器四个数字的每位之和，比如div:first-child的权重为(0,0,0,1)+(0,0,1,0)=(0,0,1,1)，比如div ul li 为(0,0,0,3),比如a:hover为(0,0,1,1)</li>
-<li>权重之和的数制是不会进位的，再多的标签选择器权重加和也抵不过一个类选择器。</li>
-<li>多个选择器之间的顺序是无关的，不影响权重之和。</li>
-<li>注意：对于并集选择器来说不是权重的加和，因为理论上它还是独立的，它只相当于将多个选择器的相同内容归于一个并集选择器中，理论上每一个选择器还是独立的</li>
-</ul>
-</li>
-</ul>
+		<h5 id="1-配置环境"><a href="#1-配置环境" class="headerlink" title="1.配置环境"></a>1.配置环境</h5><p>网络上找到的代码运行的环境为python3.6，因此使用anaconda，创建一个python3.6的环境，并安装项目所需要的包。在安装py2neo包的时候失败，原因是pip版本过低，因此将pip更新至最新版本即可成功安装。此外，使用pip安装pyltp包失败，根据csdn博客的方法，使用whl轮子进行pyltp包的安装，最终成功。博客链接如下：<br><a href="https://blog.csdn.net/weixin_39956558/article/details/111077511?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=4e615a95-678a-414b-a5ef-ceef77f4eef8&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control" target="_blank" rel="noopener">python3.6安装pyltp_pyltp安装问题解决</a><br><br><code>注意：</code>安装pyltp时，需要将whl文件存放在当前项目的根目录，即：<code>D:\Project\Python\KGQA_HLM-master\</code>目录下，然后切换到该目录，运行<code>pip install pyltp-0.2.1-cp36-cp36m-win_amd64.whl</code>命令，即可成功安装pyltp。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS/">CSS</a>
+  <span></span> <a href="/tags/Python/">Python</a>
   </div>
 
 
@@ -127,7 +100,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://f5vemyself.github.io/2019/07/18/learn-css1/" data-title="CSS三大特性 | Revolver" data-tsina="" class="share clearfix">
+  <div data-url="https://f5vemyself.github.io/2021/02/21/knowledge-graph/" data-title="毕业设计相关的笔记 | Revolver" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -136,19 +109,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/10/21/learn-python/" title="Python学习笔记">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Python学习笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/07/17/learn-js-string/"  title="js学习——数组与字符串">
+<a href="/2021/01/28/en-iot/"  title="js常用知识点">
  <strong>NEXT:</strong><br/> 
- <span>js学习——数组与字符串
+ <span>js常用知识点
 </span>
 </a>
 </div>
@@ -161,7 +126,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-CSS层叠性"><span class="toc-number">1.</span> <span class="toc-text">1.CSS层叠性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-CSS继承性"><span class="toc-number">2.</span> <span class="toc-text">2.CSS继承性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-CSS优先级"><span class="toc-number">3.</span> <span class="toc-text">3.CSS优先级</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-配置环境"><span class="toc-number">1.</span> <span class="toc-text">1.配置环境</span></a></li></ol>
   </div>
 
 <div id="asidepart">
